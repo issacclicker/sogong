@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'second.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,19 +11,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60.0),
-          child: AppBar(
-            backgroundColor: Color(0xff4693d7),
-            leading:Icon(Icons.abc), 
-          )
-        ),
-        body: Text('아아'),
-        bottomNavigationBar: BottomAppBar(
-          child:Container()
-        ),
+      home: Tests(),
+    );
+  }
+}
+
+class Tests extends StatelessWidget {
+  const Tests({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.abc),
       ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () => Navigator.push(context,MaterialPageRoute(
+              builder: (_) => SecondView(),
+          ))
+        )
+      )
     );
   }
 }
